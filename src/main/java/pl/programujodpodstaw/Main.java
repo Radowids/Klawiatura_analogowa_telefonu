@@ -9,17 +9,18 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj dowolne słowo, aby zamienić je na ciąg liczb ");
         String userWord = scanner.nextLine();
-        wordToNumber(userWord); //ponieważ metoda wordToNumber jest statyczna to wywołujemy ją bez instacji klasy
+        System.out.println(wordToNumber(userWord)); //ponieważ metoda wordToNumber jest statyczna to wywołujemy ją bez instacji klasy
 
 //        jeśli metoda wordToNumber byłaby niestatyczna to tak trzeba
 //        Main main = new Main();
 //        main.wordToNumber(userWord);
     }
 
-    public static void wordToNumber(String word){
+    public static String wordToNumber(String word){
         String lowerCaseWord = word.toLowerCase();
         char[] wordCharArray = lowerCaseWord.toCharArray();
         List<Integer> numberFromWord = new ArrayList<>();
+        String numbersResult = "";
 
         for (char characterOfArray : wordCharArray){
             if (characterOfArray == 'a' || characterOfArray == 'b' || characterOfArray == 'c'){
@@ -42,8 +43,9 @@ public class Main {
                 System.out.println("Użyto nieznanego znaku!");
             }
         }
-        for (int liczba : numberFromWord){
-            System.out.print(liczba);
+        for (int i =0; i < numberFromWord.size(); i++){
+            numbersResult += numberFromWord.get(i).toString();
         }
+        return numbersResult;
     }
 }
