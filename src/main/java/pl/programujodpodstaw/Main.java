@@ -20,7 +20,7 @@ public class Main {
         String lowerCaseWord = word.toLowerCase();
         char[] wordCharArray = lowerCaseWord.toCharArray();
         List<Integer> numberFromWord = new ArrayList<>();
-        String numbersResult = "";
+        StringBuilder numbersResult = new StringBuilder();
 
         for (char characterOfArray : wordCharArray){
             if (characterOfArray == 'a' || characterOfArray == 'b' || characterOfArray == 'c'){
@@ -43,9 +43,9 @@ public class Main {
                 System.out.println("Użyto nieznanego znaku!");
             }
         }
-        for (int i =0; i < numberFromWord.size(); i++){
-            numbersResult += numberFromWord.get(i).toString();
+        for (Integer integer : numberFromWord) {
+            numbersResult.append(integer.toString());
         }
-        return numbersResult;
+        return numbersResult.toString();
     }
 }
